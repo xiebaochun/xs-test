@@ -1,0 +1,121 @@
+html,body,input{margin:0;padding:0;}
+a{text-decoration:none;}
+.register-wrap{
+	position: relative;
+	width: 100%;
+}
+.register-wrap > img{
+	display: block;
+	width:100%;
+}
+.register-box{
+	position:absolute;
+	width:100%;
+	bottom:10%;
+	left: 0;
+	text-align: center;
+}
+.register-box > h3,h4{
+	font-weight: normal;
+	color:#fff;
+}
+.register-box > h3{
+	margin:10px auto;
+	
+	font-size:14px;
+	/*font-size: 5vw;*/
+}
+.register-box > h4{
+	margin:10px auto;
+	font-size:13px;
+	/*font-size:1vw;*/
+}
+.register-box input{
+    height:35px;
+	height: 10vw;
+	width:83%;
+	padding-left:5px;
+	font-size: 14px;
+	border:1px solid #999;
+	border-radius:3px;
+	box-sizing: border-box;
+}
+.bottom > img{
+	display: block;
+	width: 100%;
+}
+
+.phone-number{
+	/*display:inline-block;*/
+	height: 10vw;
+	width:83%;
+	padding-left:5px;
+	font-size: 20px;
+	border:1px solid #999;
+	border-radius:3px;
+}
+.send-validcode-btn{
+	display: inline-block;
+	height: 13vw;
+	width: 50%;
+	margin-top: 20px;
+}
+.money{
+	width:20%;
+	vertical-align: middle;
+}
+.validcode-wrap{position: relative;display: inline-block;width: 83%;}
+.validcode-wrap > input{display:inline-block; width: 100%;}
+.validcode-input{position: relative;}
+.remained-time{position: absolute;right:0;top:0;
+	height: 100%;
+    width:90px;
+	width:25vw;
+    line-height: 35px;
+	line-height: 10vw;
+	background-color: #cc6666;
+	color:#fff;
+}
+.agree-checkbox{width: 15px !important;height: 15px !important;border-radius:5px;}
+.agree-protocal-wrap{font-size:12px;}
+.success-pop{
+    display: none;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-top:-90px;
+    margin-left: -90px;
+    height: 120px;
+    width:180px;
+    line-height: 120px;
+    background-color:rgba(0,0,0,0.8);
+    font-size: 14px;
+    color:#fff;
+    text-align: center;
+    border-radius:5px;
+}
+.success-pop:before{
+    content:'';
+    position: fixed;
+    display: block;
+    top:-1000px;
+    left:-500px;
+    width: 1000px;
+    height: 2200px;
+    background-color:rgba(200,0,0,0);
+}
+.fadeIn{
+    display: block;
+    animation: fadeIn 0.5s forwards;
+}
+@keyframes fadeIn{
+    from{opacity: 0;transform: scale(0.2);}
+    20%{transform: scale(1.02);}
+    to{opacity: 1;transform: scale(1);}
+}
+
+.hide{display: none;}
+.inline-block{display: inline-block;}
+.fr{float: right;}
+.fl{float:left;}
+.vm{vertical-align: middle;}
