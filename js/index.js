@@ -82,9 +82,10 @@ register_btn.onclick = function(){
         return false;
     }
 
-    dialog.tips('恭喜您已注册成功！');
-
-    window.location.href = './success.html';
+    dialog.success('恭喜您已注册成功！',3000);
+    setTimeout(function(){
+        window.location.href = './success.html';
+    },2500);
     // addClass(success_pop,'fadeIn');
     // setTimeout(function(){
     //     removeClass(success_pop,'fadeIn');
@@ -170,6 +171,10 @@ Dialog.prototype.show = function(content, showTime){
     this.timeout = setTimeout(function(){
         removeClass(self.DOM,'fadeIn');
     },showTime);
+}
+Dialog.prototype.success = function(content, showTime){
+    this.DOM.style.color = '#0f0';
+    this.show(content,showTime);
 }
 Dialog.prototype.tips = function(content, showTime){
     this.DOM.style.color = '#fff';
