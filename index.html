@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <meta name="description" content="注册领红包，大学应当去嗨和远方，但是没钱，怎么办？">
+    <meta name="author" content="www.xiaoshushidai.com">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-title" content="注册领红包，大学不止眼前的苟且-小树时代">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1">
+    <meta itemprop="name" content="注册领红包，大学不止眼前的苟且-小树时代">
+    <meta itemprop="description" content="注册领红包">
+    <title>注册领红包-小树时代</title>
+    <!-- <link rel="stylesheet" href="./css/index.css"> -->
+    <style>
+    	html,body,input{margin:0;padding:0;}
+    	a{text-decoration:none;}
+    	.register-wrap{
+    		position: relative;
+    		width: 100%;
+    	}
+    	.register-wrap > img{
+    		display: block;
+    		width:100%;
+    	}
+    	.register-box{
+    		position:absolute;
+    		width:100%;
+    		bottom:10%;
+    		left: 0;
+    		text-align: center;
+    	}
+    	.register-box > h3,h4{
+    		font-weight: normal;
+    		color:#fff;
+    	}
+    	.register-box > h3{
+    		margin:10px auto;
+    		
+    		font-size:14px;
+    		/*font-size: 5vw;*/
+    	}
+    	.register-box > h4{
+    		margin:10px auto;
+    		
+    		font-size:13px;
+    		/*font-size:1vw;*/
+    	}
+    	.register-box input{
+    		height: 10vw;
+    		width:83%;
+    		padding-left:5px;
+    		font-size: 14px;
+    		border:1px solid #999;
+    		border-radius:3px;
+    		box-sizing: border-box;
+    	}
+    	.bottom > img{
+    		display: block;
+    		width: 100%;
+    	}
+
+    	.phone-number{
+    		/*display:inline-block;*/
+    		height: 10vw;
+    		width:83%;
+    		padding-left:5px;
+    		font-size: 20px;
+    		border:1px solid #999;
+    		border-radius:3px;
+    	}
+    	.send-validcode-btn{
+    		display: inline-block;
+    		height: 13vw;
+    		width: 50%;
+    		margin-top: 20px;
+    	}
+    	.money{
+    		width:20%;
+    		vertical-align: middle;
+    	}
+    	.validcode-wrap{position: relative;display: inline-block;width: 83%;}
+    	.validcode-wrap > input{display:inline-block; width: 100%;}
+    	.validcode-input{position: relative;}
+    	.remained-time{position: absolute;right:0;top:0;
+    		height: 100%;
+    		width:25vw;
+    		line-height: 10vw;
+    		background-color: #cc6666;
+    		color:#fff;
+    	}
+    	.agree-checkbox{width: 15px !important;height: 15px !important;border-radius:5px;}
+    	.agree-protocal-wrap{font-size:12px;}
+        .success-pop{
+            display: none;
+            position: fixed;
+            top:50%;
+            left: 50%;
+            margin-top:-90px;
+            margin-left: -90px;
+            height: 120px;
+            width:180px;
+            line-height: 120px;
+            background-color:rgba(0,0,0,0.8);
+            font-size: 14px;
+            color:#fff;
+            text-align: center;
+            border-radius:5px;
+        }
+        .success-pop:before{
+            content:'';
+            position: fixed;
+            display: block;
+            top:-1000px;
+            left:-500px;
+            width: 1000px;
+            height: 2200px;
+            background-color:rgba(200,0,0,0);
+        }
+        .fadeIn{
+            display: block;
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn{
+            from{opacity: 0;transform: scale(0.2);}
+            20%{transform: scale(1.02);}
+            to{opacity: 1;transform: scale(1);}
+        }
+
+    	.hide{display: none;}
+    	.inline-block{display: inline-block;}
+    	.fr{float: right;}
+    	.fl{float:left;}
+    	.vm{vertical-align: middle;}
+    </style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="register-wrap">
+			<img src="./images/up_bg.jpg">
+			<div class="register-box" id="step-one">
+				<h3>您的好友<span style="font-size:16px;/*font-size:20%;*/color:#fdca42;">158****8284</span>邀你与他一起理财</h3>
+				<h4>现在注册可领<img class="money" src="./images/qian.png">现金红包,投资直接抵扣</h4>
+				<input class="phone-number" id="phone-number" onkeyup="this.value=this.value.replace(/\D/g,'')" id="phone-number" value=""></input><br>
+				<img src="./images/but.png" class="send-validcode-btn" id="send-validcode-btn"/>
+			</div>
+			<div class="register-box hide" id="step-two" style="bottom:2%;">
+				<h3>您的好友<span style="font-size:16px;/*font-size:20%;*/color:#fdca42;">158****8284</span>邀你与他一起理财</h3>
+				<h4>现在注册可领<img class="money" src="./images/qian.png">现金红包,投资直接抵扣</h4>
+				<div class="">
+					<div class="validcode-wrap">
+						<input class="validcode-input" id="validcode-input" placeholder="请输入验证码"></input>
+						<div class="remained-time" id="remained-time-wrap"><span id="remained-time" style="font-size: 14px;">60</span></div>
+					</div>
+					<input class="password-set-input" id="pw-input" type="password" placeholder="请设置登录密码" style="margin-top:5px;"></input>
+					<div class="inline-block" style="margin-top:0px;font-size:12px;width:83%;line-height: 30px; color:#fff;">
+						<div class="agree-protocal-wrap fl">
+							<input class="agree-checkbox vm" id="agree-checkbox" checked="checked" type="checkbox"></input>
+							<span class="agree-text vm">同意 <a style="color:#fff;" href="">《注册协议》</a></span>
+						</div>
+						<div class="fr" id="alter-phone-btn" style="cursor:pointer;">修改手机号</div>
+					</div>
+				</div>
+				<img src="./images/but.png" style="margin-top: 6px;" class="send-validcode-btn" id="register-btn"/>
+			</div>
+		</div>
+		<div class="bottom">
+			<img src="./images/down_bg.jpg">
+		</div>
+        <div class="success-pop" id="success-pop">恭喜你已注册成功！</div>
+	</div>
+	<script type="text/javascript" src="./js/common.js"></script>
+	<script>
+    //获取DOM节点
+	var send_validcode_btn = document.getElementById('send-validcode-btn'),
+        register_btn = document.getElementById('register-btn'),
+        alter_phone_btn = document.getElementById('alter-phone-btn'),
+        step_one = document.getElementById('step-one'),
+        step_two = document.getElementById('step-two'),
+        remained_time_wrap = document.getElementById('remained-time-wrap'),
+        remained_time = document.getElementById('remained-time'),
+        success_pop = document.getElementById('success-pop');
+
+    var phone_input = document.getElementById('phone-number'),
+        validcode_input = document.getElementById('validcode-input'),
+        pw_input = document.getElementById('pw-input'),
+        agree_checkbox = document.getElementById('agree-checkbox');;
+
+    var phone,validcode,password;
+
+    //倒计时初始时间
+    var REAMINED_TIME = 60;
+
+    var valideCodeTimer = null;
+
+    var dialog = new Dialog();
+	//发送验证码
+	send_validcode_btn.onclick = function(){
+		//发送验证码
+        phone = phone_input.value;
+        //alert(phone);
+        if(!/^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\d{8}$/i.test(phone)){
+            dialog.error('手机号码错误！');
+            return false;
+        }
+        sendValidCode(function(ret){
+            if(rets){
+
+            }else{
+                
+            }
+        });
+        removeClass(step_two,'hide');
+        addClass(step_one,'hide');
+        valideCodeTimer = new ValidCodeTimer();
+	}
+    //修改手机号码
+    alter_phone_btn.onclick = function(){
+        addClass(step_two,'hide');
+        removeClass(step_one,'hide');
+        valideCodeTimer.stop();
+    }
+    //注册
+    register_btn.onclick = function(){
+        var password = pw_input.value,
+            validcode = validcode_input.value;
+
+        if(validcode.length < 4){
+            dialog.error('请输入验证码！',2000);
+            return false;
+        }
+        if(password.length < 6){
+            dialog.error('密码少于6位！',2000);
+            return false;
+        }
+        ajax({
+            url: ".php",              //请求地址
+            type: "POST",                       //请求方式
+            data: {'code': '0000','pw':'qwer' },        //请求参数
+            dataType: "json",
+            success: function (response, xml) {
+                // 此处放成功后执行的代码
+            },
+            fail: function (status) {
+                // 此处放失败后执行的代码
+            }
+        });
+
+        //alert(agree_checkbox.checked);
+        if(!agree_checkbox.checked){
+            //agree_checkbox.checked =false;
+            dialog.error('请同意《注册协议》');
+            return false;
+        }
+
+        dialog.tips('恭喜您已注册成功！');
+        // addClass(success_pop,'fadeIn');
+        // setTimeout(function(){
+        //     removeClass(success_pop,'fadeIn');
+        // },1000);
+    }
+    remained_time_wrap.onclick = function(){
+        if(!valideCodeTimer.isRunning){
+            //发送验证码
+            sendValidCode(function(ret){
+                if(rets){
+
+                }else{
+
+                }
+            });
+            valideCodeTimer.start();
+        }
+        
+    }
+    success_pop.onclick = function(){
+        //addClass(this,'hide');
+        removeClass(this,'fadeIn');
+    }
+    //发送验证码
+    function sendValidCode(callback){
+        ajax({
+            url: ".php",              //请求地址
+            type: "POST",                       //请求方式
+            data: {'phone': '13083951289' },        //请求参数
+            dataType: "json",
+            success: function (response, xml) {
+                // 此处放成功后执行的代码
+                callback(1);
+            },
+            fail: function (status) {
+                // 此处放失败后执行的代码
+                callback(0);
+            }
+        });
+    }
+    function ValidCodeTimer(){
+        this.start();
+    }
+    ValidCodeTimer.prototype.time = REAMINED_TIME;
+    ValidCodeTimer.prototype.isRunning = false;
+    ValidCodeTimer.prototype.interval = null;
+    ValidCodeTimer.prototype.init = function(){
+        this.time = REAMINED_TIME;
+    }
+    ValidCodeTimer.prototype.start = function(){
+        var self = this;
+        self.init();
+        self.isRunning = true;
+        this.interval = setInterval(function(){
+            self.time--;
+            remained_time.innerText = self.time;
+            if(self.time <= 0){
+                self.stop();
+                remained_time.innerText = '重新获取';
+            }
+        },1000);
+    }   
+    ValidCodeTimer.prototype.stop = function(){
+        if(this.interval){
+            clearInterval(this.interval);
+        }
+        this.isRunning = false;
+        remained_time.innerText = this.time+'';
+    } 
+
+    function Dialog(){
+    }
+    Dialog.prototype.DOM = success_pop;
+    Dialog.prototype.timeout = null;
+    Dialog.prototype.show = function(content, showTime){
+        var self = this;
+        var showTime = showTime || 1000;
+        removeClass(self.DOM,'fadeIn');
+        if(this.timeout)clearTimeout(this.timeout);
+        addClass(this.DOM,'fadeIn');
+        self.DOM.innerText = content || 'dialog';
+        
+        this.timeout = setTimeout(function(){
+            removeClass(self.DOM,'fadeIn');
+        },showTime);
+    }
+    Dialog.prototype.tips = function(content, showTime){
+        this.DOM.style.color = '#fff';
+        this.show(content,showTime);
+    }
+    Dialog.prototype.error = function(content, showTime){
+        this.DOM.style.color = 'red';
+        this.show(content,showTime || 2000);
+    }
+
+	</script>
+<!-- google统计 -->
+<script>
+// (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+//     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+// })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// ga('create', 'UA-74181879-1', 'auto');
+// ga('send', 'pageview');
+</script>
+<!--百度统计-->
+<script>
+// var _hmt = _hmt || [];
+// (function() {
+//   var hm = document.createElement("script");
+//   hm.src = "//hm.baidu.com/hm.js?8a02c7a16286e12c0e9b2a4b6987e44b";
+//   var s = document.getElementsByTagName("script")[0];
+//   s.parentNode.insertBefore(hm, s);
+// })();
+</script>
+</body>
+</html
