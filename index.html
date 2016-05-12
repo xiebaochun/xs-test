@@ -235,10 +235,12 @@
             dialog.error('请输入验证码！',2000);
             return false;
         }
+
         if(password.length < 6){
             dialog.error('密码少于6位！',2000);
             return false;
         }
+
         ajax({
             url: ".php",              //请求地址
             type: "POST",                       //请求方式
@@ -260,6 +262,8 @@
         }
 
         dialog.tips('恭喜您已注册成功！');
+
+        window.location.href = './success.html';
         // addClass(success_pop,'fadeIn');
         // setTimeout(function(){
         //     removeClass(success_pop,'fadeIn');
