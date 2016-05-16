@@ -34,13 +34,21 @@
             left: 14%;
         }
     </style>
+    <script>
+        function imageLoad(index){
+            //console.log('image load: ' + index);
+            var item = document.querySelectorAll('#down-bg')[0];
+            item.setAttribute("src",item.getAttribute("data-src"));
+            item.removeAttribute("data-src");
+        }
+    </script>
 </head>
 <body>
  <div class="warp">
      <div class="header" >
-         <img class="headers" src="./images/hou.jpg" alt="" >
+         <img class="headers" src="./images/hou.jpg" alt="" onload="imageLoad(1);">
              <div class="but">
-                 <a href=""> <img class="butn" src="./images/button.png" alt=""></a>
+                 <a href=""> <img class="butn" id="down-bg" data-src="./images/button.png" src="" alt=""></a>
              </div>
      </div>
  </div>

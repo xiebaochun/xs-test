@@ -18,11 +18,19 @@
     <meta itemprop="description" content="注册领红包">
     <title>注册领红包-小树时代</title>
     <link rel="stylesheet" href="./css/index.css">
+    <script>
+    	function imageLoad(index){
+		    //console.log('image load: ' + index);
+		    var item = document.querySelectorAll('#down-bg')[0];
+		    item.setAttribute("src",item.getAttribute("data-src"));
+		    item.removeAttribute("data-src");
+		}
+    </script>
 </head>
 <body>
 	<div class="wrap">
 		<div class="register-wrap">
-			<img src="./images/up_bg.jpg">
+			<img src="./images/up_bg.jpg" onload="imageLoad(1);">
 			<div class="register-box" id="step-one">
 				<h3>您的好友<span style="font-size:16px;/*font-size:20%;*/color:#fdca42;">158****8284</span>邀你与他一起理财</h3>
 				<h4>现在注册可领<img class="money" src="./images/qian.png">现金红包,投资直接抵扣</h4>
@@ -50,7 +58,7 @@
 			</div>
 		</div>
 		<div class="bottom">
-			<img src="./images/down_bg.jpg">
+			<img id="down-bg" data-src="./images/down_bg.jpg" src="" _onload="imageLoad(2);">
 		</div>
         <div class="success-pop" id="success-pop">恭喜你已注册成功！</div>
 	</div>
